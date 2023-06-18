@@ -37,7 +37,7 @@ pipeline {
 
         stage('Deploy FrontEnd'){
             steps{
-                dir(frontend){
+                dir('frontend'){
                     git 'https://github.com/danielkrokovsky/tasks-frontend.git'
                     sh 'mvn clean package'
                     deploy adapters: [tomcat8(credentialsId: 'f86a9675-12cf-4f09-acbe-03db3086c4e3', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
