@@ -29,5 +29,10 @@ pipeline {
                 }
             }
         }
+        stage('Deploy BacEnd'){
+            steps{
+                deploy adapters: [tomcat8(credentialsId: 'f86a9675-12cf-4f09-acbe-03db3086c4e3', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+            }
+        }
     }
 }
