@@ -49,7 +49,7 @@ pipeline {
             always{
                 junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
             }
-            unsucessful{
+            unsuccessful{
                 emailext body: 'Build falhou', subject: 'Build has failed', to: 'danielkrokovsky@hotmail.com'
             }
             fixed{
